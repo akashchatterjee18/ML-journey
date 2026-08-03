@@ -22,7 +22,8 @@ Mean Squared Error (MSE) is the average of the squared differences between the a
 
 Cost Function is a mathematical function that measures the average prediction error of a machine learning model. The objective of linear regression is to minimise the cost function to obtain the best-fit line.
 
-<img width="349" height="112" alt="image" src="https://github.com/user-attachments/assets/e7173563-06fd-4196-8857-cea5eeac2841" />
+<img width="355" height="121" alt="image" src="https://github.com/user-attachments/assets/d0d8ac5e-f953-41f1-b36a-a6ab638694f4" />
+
 
 <img width="148" height="77" alt="image" src="https://github.com/user-attachments/assets/53b48e7f-3eea-4947-9df8-6e65471e504f" />
 
