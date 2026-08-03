@@ -1,5 +1,4 @@
-# WE WILL LEARN COMPLETE EDA WITH AN REAL WORLD DATASET EXAMPLE
-# WE WILL USE insurance.csv FILE FOR THIS PROJECT
+# Till line 165 EDA then after regression algorithm
 
 import numpy as np
 import pandas as pd
@@ -164,6 +163,7 @@ final_df = df_cleaned[['age', 'is_female', 'bmi', 'children', 'is_smoker', 'char
 
 
 
+# Regression Algorithm (Supervised Learning)
 
 
 
