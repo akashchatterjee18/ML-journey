@@ -31,7 +31,18 @@ Relation Between J and MSE
 
 <img width="148" height="77" alt="image" src="https://github.com/user-attachments/assets/53b48e7f-3eea-4947-9df8-6e65471e504f" />
 
-  
+We have to minimise the cost function by changing the value of b and m by using the concept of Gradient Descent
+Gradient Descent is an optimization algorithm used to minimize the cost function by iteratively updating the model parameters in the direction of the steepest decrease in cost.
+How Gradient Descent Works?
+* Initialize random values for b and m.
+* Compute the cost function J(b,m).
+* Calculate the gradients with respect to b and m.
+* Update b and m using the update equations.
+* Repeat until the cost function reaches its minimum.
+
+
+
+
 Classification is a supervised machine learning algorithm used to predict categorical class labels.
 Example of Classification : Heart Disease Prediction (Yes/No)
 
