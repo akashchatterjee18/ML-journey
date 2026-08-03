@@ -52,6 +52,15 @@ Why use a low learning rate?
 * Small updates allow the algorithm to gradually approach the minimum cost.
 * Smaller steps help the model settle closer to the true minimum.
 
+Now what to do for multiple input and output variable?
+
+Multiple Linear Regression comes into play
+
+<img width="652" height="454" alt="image" src="https://github.com/user-attachments/assets/4f706703-959c-4bbb-b868-da0ff1b24c1a" />
+
+
+
+
 
 Classification is a supervised machine learning algorithm used to predict categorical class labels.
 Example of Classification : Heart Disease Prediction (Yes/No)
