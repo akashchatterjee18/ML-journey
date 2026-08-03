@@ -163,8 +163,6 @@ final_df = df_cleaned[['age', 'is_female', 'bmi', 'children', 'is_smoker', 'char
 
 
 
-# Regression Algorithm (Supervised Learning)
-
 
 
 
