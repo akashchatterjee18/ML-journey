@@ -6,14 +6,20 @@ Linear Regression is a supervised machine learning algorithm that models the rel
 The best-fit line is the straight line that minimises the sum of the squared differences (residuals) between the actual values and the predicted values, providing the best linear relationship between the input features and the target variable.
 
 y = mx + b
+
 y = prediction of target
+
 m = slope
+
 x = datapoint to be used to predict y
+
 b = y-intercept
 
 How to find the perfect value of m and b?
 Here comes the concept of residual error...
+
 Residual Error is the difference between the actual value and the value predicted(Best Fit Line) by the regression model for a data point.
+
 Residual Error = Ya - Yp
 
 Mean Squared Error (MSE) is the average of the squared differences between the actual values and the predicted values used to measure the accuracy of a regression model.
@@ -25,6 +31,7 @@ Cost Function is a mathematical function that measures the average prediction er
 <img width="355" height="121" alt="image" src="https://github.com/user-attachments/assets/d0d8ac5e-f953-41f1-b36a-a6ab638694f4" />
 
 b = y-intercept
+
 m = slope
 
 Relation Between J and MSE
@@ -33,6 +40,7 @@ Relation Between J and MSE
 
 We have to minimise the cost function by changing the value of b and m by using the concept of Gradient Descent.
 Gradient Descent is an optimization algorithm used to minimize the cost function by iteratively updating the model parameters in the direction of the steepest decrease in cost.
+
 How Gradient Descent Works?
 * Initialize random values for b and m.
 * Compute the cost function J(b,m).
@@ -54,7 +62,7 @@ Why use a low learning rate?
 
 Now what to do for multiple input and output variable?
 
-Multiple Linear Regression comes into play
+Multiple Linear Regression comes into play.
 
 <img width="652" height="454" alt="image" src="https://github.com/user-attachments/assets/4f706703-959c-4bbb-b868-da0ff1b24c1a" />
 
