@@ -5,6 +5,11 @@ Linear Regression is a supervised machine learning algorithm that models the rel
 
 The best-fit line is the straight line that minimises the sum of the squared differences (residuals) between the actual values and the predicted values, providing the best linear relationship between the input features and the target variable.
 
+y = mx + b
+y = prediction of target
+m = slope
+x = datapoint to be used to predict y
+b = y-intercept
 
 
 
