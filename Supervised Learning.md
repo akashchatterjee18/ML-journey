@@ -31,7 +31,7 @@ Relation Between J and MSE
 
 <img width="148" height="77" alt="image" src="https://github.com/user-attachments/assets/53b48e7f-3eea-4947-9df8-6e65471e504f" />
 
-We have to minimise the cost function by changing the value of b and m by using the concept of Gradient Descent
+We have to minimise the cost function by changing the value of b and m by using the concept of Gradient Descent.
 Gradient Descent is an optimization algorithm used to minimize the cost function by iteratively updating the model parameters in the direction of the steepest decrease in cost.
 How Gradient Descent Works?
 * Initialize random values for b and m.
@@ -40,7 +40,17 @@ How Gradient Descent Works?
 * Update b and m using the update equations.
 * Repeat until the cost function reaches its minimum.
 
+Repeat Convergence Theorem
 
+Gradient Descent converges to the global minimum for a convex cost function if the learning rate is chosen appropriately.
+
+<img width="549" height="399" alt="image" src="https://github.com/user-attachments/assets/9b786fb2-a96e-4826-9c98-1cae9160491f" />
+
+
+Why use a low learning rate?
+* Large learning rates can jump over the minimum point repeatedly and never converge.
+* Small updates allow the algorithm to gradually approach the minimum cost.
+* Smaller steps help the model settle closer to the true minimum.
 
 
 Classification is a supervised machine learning algorithm used to predict categorical class labels.
