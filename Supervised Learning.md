@@ -20,6 +20,12 @@ Mean Squared Error (MSE) is the average of the squared differences between the a
 
 <img width="321" height="124" alt="image" src="https://github.com/user-attachments/assets/19bcc9af-55cc-4e51-9e4d-e92a22acef18" />
 
+Cost Function is a mathematical function that measures the average prediction error of a machine learning model. The objective of linear regression is to minimise the cost function to obtain the best-fit line.
+
+<img width="349" height="112" alt="image" src="https://github.com/user-attachments/assets/e7173563-06fd-4196-8857-cea5eeac2841" />
+
+<img width="148" height="77" alt="image" src="https://github.com/user-attachments/assets/53b48e7f-3eea-4947-9df8-6e65471e504f" />
+
   
 Classification is a supervised machine learning algorithm used to predict categorical class labels.
 Example of Classification : Heart Disease Prediction (Yes/No)
