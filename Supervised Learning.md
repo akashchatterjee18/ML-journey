@@ -58,8 +58,9 @@ Multiple Linear Regression comes into play
 
 <img width="652" height="454" alt="image" src="https://github.com/user-attachments/assets/4f706703-959c-4bbb-b868-da0ff1b24c1a" />
 
+Hyperplane in Multiple Linear Regression
 
-
+In Multiple Linear Regression, a hyperplane is the best-fit flat surface that represents the relationship between multiple independent variables and a single dependent variable.
 
 
 Classification is a supervised machine learning algorithm used to predict categorical class labels.
