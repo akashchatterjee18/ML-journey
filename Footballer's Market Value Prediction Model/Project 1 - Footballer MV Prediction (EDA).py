@@ -273,3 +273,45 @@ df[cols]=scaler.fit_transform(df[cols])
 
 final_df = df.copy()
 print(final_df.head())
+
+## now using this dataframe we will create a ML model
+
+from sklearn.model_selection import train_test_split
+
+x = final_df.drop('charges',axis=1)
+y = final_df['charges']
+
+x_train, x_test, y_train, y_test = train_test_split(x,y,test_size =0.2, random_state =42)
+
+from sklearn.linear_model import LinearRegression
+model = LinearRegression()
+model.fit(x_train,y_train)
+
+# Prediction
+
+y_pred = model.predict(x_test)
+
+from sklearn.metrics import r2_score
+r2 = r2_score(y_test,y_pred)
+
+n = x_test.shape[0]
+p = x_test.shape[1]
+adjusted_r2 = 1 - ((1-r2)*(n-1)/(n-p-1))
+print(f"R2 score : {r2}")
+print(f"Adjusted R2 score : {adjusted_r2}")
+
+# Overfitting / Underfitting check
+
+# Training predictions
+y_train_pred = model.predict(x_train)
+
+# Testing predictions
+y_test_pred = model.predict(x_test)
+
+# R² scores
+train_r2 = r2_score(y_train, y_train_pred)
+test_r2 = r2_score(y_test, y_test_pred)
+
+print("Training R²:", train_r2)
+print("Testing R² :", test_r2)
+print(f"Generalization Gap : {abs(train_r2 - test_r2)}")
