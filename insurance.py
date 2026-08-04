@@ -206,17 +206,3 @@ print(f"Generalization Gap : {abs(train_r2 - test_r2)}")
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
