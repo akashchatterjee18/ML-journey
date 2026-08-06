@@ -31,7 +31,7 @@ print(df['Preferred Positions'].value_counts())
 print(df['Wage'].head())
 print(df['Wage'].dtype)
 
-print(df['Value'].head())       # Target analysis
+print(df['Value'].head()) 
 print(df['Value'].dtype)
 
 print(df.isnull().sum())
@@ -50,7 +50,7 @@ def convert_money(x):
 df['Value'] = df['Value'].apply(convert_money)
 df['Wage'] = df['Wage'].apply(convert_money)
 
-"""
+
 def plotting(var,num):
     plt.subplot(2,2,num)
     sns.histplot(df[var],kde = True)
@@ -61,7 +61,7 @@ plotting('Overall',2)
 plotting('Wage',3)
 plotting('Value',4)
 plt.show()
-"""
+
 df['Elite'] = (df['Overall'] >= 90).astype(int)     # Feature Engineering
 
 print(df[df['Elite'] == 1]['Name'])
@@ -181,13 +181,13 @@ selected_features = (
 )
 print(len(selected_features))
 print(selected_features)
-"""
+
 for feature in selected_features:
     plt.figure(figsize=(6, 4))
     sns.scatterplot(x=df[feature], y=df['Value'])
     plt.title(f'{feature} vs Value')
     plt.show()
-"""
+
 
 # Pearson Correlation
 from scipy.stats import pearsonr
