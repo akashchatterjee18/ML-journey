@@ -320,9 +320,9 @@ print("Testing R² :", test_r2)
 print(f"Generalization Gap {abs(train_r2 - test_r2)}")
 
 """
-R2 score : 0.9762771416024303
-Adjusted R2 score : 0.9759715250528523
-Training R²: 0.9759509621123813
-Testing R² : 0.9762771416024303
-Generalization Gap 0.0003261794900489834
+R2 score : 0.7960930351507977
+Adjusted R2 score : 0.7927502980221222
+Training R²: 0.753921744351223
+Testing R² : 0.7960930351507977
+Generalization Gap : 0.0421712907995746
 """
