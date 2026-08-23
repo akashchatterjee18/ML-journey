@@ -10,7 +10,10 @@ warnings.filterwarnings('ignore')
 
 
 df = pd.read_csv('footballers.csv')
+df = df.replace(['nan', 'NaN', 'NAN', ''], np.nan)
 print(df)
+
+
 
 # analysis
 print(df.columns)
@@ -31,7 +34,7 @@ print(df['Preferred Positions'].value_counts())
 print(df['Wage'].head())
 print(df['Wage'].dtype)
 
-print(df['Value'].head()) 
+print(df['Value'].head())       # Target analysis
 print(df['Value'].dtype)
 
 print(df.isnull().sum())
@@ -50,7 +53,7 @@ def convert_money(x):
 df['Value'] = df['Value'].apply(convert_money)
 df['Wage'] = df['Wage'].apply(convert_money)
 
-
+"""
 def plotting(var,num):
     plt.subplot(2,2,num)
     sns.histplot(df[var],kde = True)
@@ -61,7 +64,7 @@ plotting('Overall',2)
 plotting('Wage',3)
 plotting('Value',4)
 plt.show()
-
+"""
 df['Elite'] = (df['Overall'] >= 90).astype(int)     # Feature Engineering
 
 print(df[df['Elite'] == 1]['Name'])
@@ -134,7 +137,8 @@ for col in df.columns:
 
 for col in df.columns:
     if col not in exclude:
-        df[col] = pd.to_numeric(df[col]).astype(int)
+        df[col] = pd.to_numeric(df[col], errors='coerce')
+        df[col] = df[col].fillna(0).astype(int)
 
 # grouping features
 profile = ['Age', 'Overall', 'Potential', 'Special','Elite']
@@ -181,13 +185,13 @@ selected_features = (
 )
 print(len(selected_features))
 print(selected_features)
-
+"""
 for feature in selected_features:
     plt.figure(figsize=(6, 4))
     sns.scatterplot(x=df[feature], y=df['Value'])
     plt.title(f'{feature} vs Value')
     plt.show()
-
+"""
 
 # Pearson Correlation
 from scipy.stats import pearsonr
@@ -262,24 +266,23 @@ selected_features = [
 ]
 # scaling
 from sklearn.preprocessing import StandardScaler
-
 cols = [
     col for col in selected_features
     if df[col].nunique() > 2
 ]
-
 scaler = StandardScaler()
 df[cols]=scaler.fit_transform(df[cols])
+print(df.head())
+
 
 final_df = df.copy()
-print(final_df.head())
 
 ## now using this dataframe we will create a ML model
 
 from sklearn.model_selection import train_test_split
 
-x = final_df.drop('charges',axis=1)
-y = final_df['charges']
+x = final_df.drop(["Name", "Nationality", "Club", "Value"],axis=1)
+y = final_df['Value']
 
 x_train, x_test, y_train, y_test = train_test_split(x,y,test_size =0.2, random_state =42)
 
@@ -314,4 +317,12 @@ test_r2 = r2_score(y_test, y_test_pred)
 
 print("Training R²:", train_r2)
 print("Testing R² :", test_r2)
-print(f"Generalization Gap : {abs(train_r2 - test_r2)}")
+print(f"Generalization Gap {abs(train_r2 - test_r2)}")
+
+"""
+R2 score : 0.9762771416024303
+Adjusted R2 score : 0.9759715250528523
+Training R²: 0.9759509621123813
+Testing R² : 0.9762771416024303
+Generalization Gap 0.0003261794900489834
+"""
