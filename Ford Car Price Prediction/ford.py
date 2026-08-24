@@ -150,7 +150,7 @@ print("Testing R² of label encoded model :", test_r2)
 print(f"Generalization Gap of label encoded model : {abs(train_r2 - test_r2)}")
 
 
-## here model 2 (label encoded) have less accurance than model 1 (1-hot encoded)
+## here model 2 (label encoded) have less accurancy than model 1 (1-hot encoded)
 
 # thus first model was better
 
