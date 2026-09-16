@@ -216,9 +216,3 @@ The main difference can be summarised as:
 
 For regression models containing many features, **Adjusted R² can provide a more informative measure of model fit than R² alone.**
 
-~~~~
-Classification
-~~~~
-Classification is a supervised machine learning algorithm used to predict categorical class labels.
-Example of Classification : Heart Disease Prediction (Yes/No)
-
