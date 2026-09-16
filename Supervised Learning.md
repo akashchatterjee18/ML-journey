@@ -73,6 +73,148 @@ Hyperplane in Multiple Linear Regression
 
 In Multiple Linear Regression, a hyperplane is the best-fit flat surface that represents the relationship between multiple independent variables and a single dependent variable.
 
+# Evaluation Metrics
+
+## R² (R-Squared)
+
+**R²**, also known as the **coefficient of determination**, measures how well the independent variables explain the variation in the dependent variable.
+
+It represents the proportion of the variance in the target variable that is explained by the regression model.
+
+### Formula
+
+$$
+R^2 = 1 - \frac{SS_{res}}{SS_{tot}}
+$$
+
+Where:
+
+* $SS_{res}$ = Residual Sum of Squares
+* $SS_{tot}$ = Total Sum of Squares
+
+More explicitly:
+
+$$
+SS_{res} = \sum_{i=1}^{n}(y_i-\hat{y}_i)^2
+$$
+
+$$
+SS_{tot} = \sum_{i=1}^{n}(y_i-\bar{y})^2
+$$
+
+Where:
+
+* $y_i$ = Actual value
+* $\hat{y}_i$ = Predicted value
+* $\bar{y}$ = Mean of the actual target values
+* $n$ = Number of observations
+
+### Interpretation
+
+R² generally ranges from **0 to 1** in ordinary regression with an intercept, although it can be negative on unseen/test data.
+
+* **R² = 1** → The model explains 100% of the variation in the target.
+* **R² = 0** → The model explains none of the variation beyond predicting the mean.
+* **Higher R²** → The model explains more of the variation in the target variable.
+
+For example, if:
+
+$$
+R^2 = 0.80
+$$
+
+then approximately **80% of the variation** in the target variable is explained by the model, while the remaining **20%** is not explained by the model.
+
+> **Important:** A high R² does not necessarily mean that the model is good or that it will generalise well to unseen data. R² should be considered along with test-set performance and other evaluation metrics.
+
+---
+
+## Adjusted R²
+
+**Adjusted R²** is a modified version of R² that takes the **number of predictors (features)** and the **number of observations** into account.
+
+Unlike R², adjusted R² introduces a penalty for adding unnecessary predictors to the model.
+
+### Formula
+
+$$
+Adjusted\ R^2 =
+1-\left(\frac{(1-R^2)(n-1)}{n-p-1}\right)
+$$
+
+Where:
+
+* $R^2$ = R-Squared
+* $n$ = Number of observations
+* $p$ = Number of independent variables/predictors
+
+### Why Adjusted R² is Used
+
+R² has an important limitation:
+
+> **R² never decreases when additional predictors are added to a regression model.**
+
+Even if a new feature contributes very little useful information, R² may increase slightly.
+
+Adjusted R² addresses this problem by applying a **penalty for additional predictors**.
+
+Therefore:
+
+* If a new predictor provides meaningful information → Adjusted R² may increase.
+* If a new predictor provides little or no useful information → Adjusted R² may decrease.
+* If the additional predictor does not improve the model enough to justify its inclusion → Adjusted R² penalises the model.
+
+---
+
+## R² vs Adjusted R²
+
+| Metric                                                         | R²            | Adjusted R²   |
+| -------------------------------------------------------------- | ------------- | ------------- |
+| Measures explained variance                                    | Yes           | Yes           |
+| Considers number of predictors                                 | No            | Yes           |
+| Penalises unnecessary predictors                               | No            | Yes           |
+| Can decrease when a feature is added                           | No            | Yes           |
+| Useful for comparing models with different numbers of features | Less suitable | More suitable |
+
+### Example
+
+Suppose a model has:
+
+$$
+R^2 = 0.85
+$$
+
+and:
+
+$$
+Adjusted\ R^2 = 0.84
+$$
+
+This means the model explains approximately **85% of the variation** in the target variable, while after accounting for the number of predictors, the adjusted measure is approximately **84%**.
+
+If another feature is added and the results become:
+
+$$
+R^2 = 0.86
+$$
+
+but:
+
+$$
+Adjusted\ R^2 = 0.83
+$$
+
+then the increase in R² does not necessarily indicate an improvement in the model. The decrease in adjusted R² suggests that the additional predictor may not provide enough useful information relative to the complexity it adds.
+
+---
+
+## Key Difference
+
+The main difference can be summarised as:
+
+> **R² tells us how much variation the model explains, whereas Adjusted R² tells us how much variation the model explains while accounting for the number of predictors used.**
+
+For regression models containing many features, **Adjusted R² can provide a more informative measure of model fit than R² alone.**
 
 ~~~~
 Classification
