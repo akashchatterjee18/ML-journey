@@ -1,3 +1,6 @@
+~~~~
+Regression
+~~~~
 Regression is a supervised machine learning algorithm used to predict continuous numerical values.
 Example of Regression : Insurance Prediction, Footballers Market Value Prediction
 
@@ -71,6 +74,9 @@ Hyperplane in Multiple Linear Regression
 In Multiple Linear Regression, a hyperplane is the best-fit flat surface that represents the relationship between multiple independent variables and a single dependent variable.
 
 
+~~~~
+Classification
+~~~~
 Classification is a supervised machine learning algorithm used to predict categorical class labels.
 Example of Classification : Heart Disease Prediction (Yes/No)
 
