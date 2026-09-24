@@ -45,7 +45,9 @@ if st.button("Predict"):
 
     input_df = input_df[expected_columns]
 
-    prediction = model.predict(input_df)[0]
+input_scaled = scaler.transform(input_df)
+
+prediction = model.predict(input_scaled)[0]
 
     if prediction == 1:
         st.error("High risk of Heart Disease")
