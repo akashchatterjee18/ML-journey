@@ -45,11 +45,19 @@ if st.button("Predict"):
 
     input_df = input_df[expected_columns]
 
-input_scaled = scaler.transform(input_df)
+    input_scaled = scaler.transform(input_df)
 
-prediction = model.predict(input_scaled)[0]
+    probabilities = model.predict_proba(input_scaled)[0]
 
-    if prediction == 1:
-        st.error("High risk of Heart Disease")
+    no_disease_probability = probabilities[0]
+    disease_probability = probabilities[1]
+
+    disease_percent = disease_probability * 100
+    no_disease_percent = no_disease_probability * 100
+
+    if disease_probability >= 0.5:
+        st.error(f"Heart Disease Probability: {disease_percent:.2f}%")
+        st.success(f"No Heart Disease Probability: {no_disease_percent:.2f}%")
     else:
-        st.success("Low risk of Heart Disease")
+        st.success(f"No Heart Disease Probability: {no_disease_percent:.2f}%")
+        st.error(f"Heart Disease Probability: {disease_percent:.2f}%")
