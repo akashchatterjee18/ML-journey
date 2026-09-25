@@ -7,9 +7,9 @@ The project includes data preprocessing, feature engineering, statistical featur
 ## Live Demo
 
 The trained model is deployed as an interactive Streamlit application where users can enter player attributes and receive an estimated market value.
-```
+
 Live application: https://footballer-market-value-prediction-by-ac.streamlit.app/
-```
+
 ## Project Overview
 
 Football player market value depends on several factors, including age, overall rating, potential, physical attributes, technical abilities, attacking and defending capabilities, goalkeeping attributes, and playing position.
