@@ -8,7 +8,7 @@ The project includes data preprocessing, feature engineering, statistical featur
 
 The trained model is deployed as an interactive Streamlit application where users can enter player attributes and receive an estimated market value.
 
-Live application: [Football Player Market Value Prediction — Streamlit App](https://footballer-market-value-prediction-by-ac.streamlit.app/
+Live application: [Football Player Market Value Prediction] (https://footballer-market-value-prediction-by-ac.streamlit.app/
 
 ## Project Overview
 
