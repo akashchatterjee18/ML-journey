@@ -2,13 +2,13 @@
 
 A machine learning classification project that predicts whether a passenger survived the Titanic disaster based on passenger-related features.
 
-The project focuses on data preprocessing, feature encoding, train-test splitting, feature scaling, and comparison of multiple classification algorithms.
+The project focuses on data exploration, data preprocessing, categorical feature encoding, train-test splitting, feature scaling, implementation of multiple classification algorithms, model evaluation, and model selection.
 
 ## Overview
 
-The Titanic dataset is used to build and evaluate several machine learning classification models.
+The Titanic dataset is used to build and evaluate multiple supervised machine learning classification models.
 
-The following models are implemented and compared:
+The following classification algorithms are implemented and compared:
 
 * Logistic Regression
 * K-Nearest Neighbours (KNN)
@@ -16,13 +16,13 @@ The following models are implemented and compared:
 * Decision Tree
 * Support Vector Classifier (SVC)
 
-After evaluating the models using accuracy, confusion matrices, and classification reports, the SVC model was selected for this dataset based on the results obtained in the project.
+The models are evaluated using accuracy score, confusion matrix, and classification report. Based on the results obtained in the project, SVC achieved the highest accuracy and was selected as the final model.
 
 ## Dataset
 
 The project uses the Titanic dataset.
 
-The dataset contains information about passengers, including features such as:
+The dataset contains information about passengers, including:
 
 * Passenger class
 * Sex
@@ -34,15 +34,37 @@ The dataset contains information about passengers, including features such as:
 
 The target variable is:
 
-* `survived` — whether the passenger survived
+```text
+survived
+```
+
+where:
+
+* `0` represents a passenger who did not survive
+* `1` represents a passenger who survived
+
+## Data Exploration
+
+Initial data exploration was performed to understand:
+
+* Dataset shape
+* Column names
+* Data types
+* Missing values
+* Numerical and categorical features
+* Feature distributions
+* Relationships between variables
+* Survival patterns
+
+Visualisation was performed using Matplotlib and Seaborn.
 
 ## Data Preprocessing
 
-The following preprocessing steps were performed:
+Several preprocessing steps were performed before training the machine learning models.
 
 ### Removing Unnecessary Columns
 
-The following columns were removed:
+The following columns were removed because they were not required for the prediction task:
 
 ```text
 deck
@@ -57,20 +79,32 @@ adult_male
 
 Missing values in the `age` column were replaced with the mean age.
 
-Rows with missing values in the `embarked` column were removed.
+Rows containing missing values in the `embarked` column were removed.
 
 ### Encoding Categorical Features
 
-The categorical columns `sex` and `embarked` were converted into numerical values using `LabelEncoder`.
+Categorical features were converted into numerical values using `LabelEncoder`.
+
+The following categorical columns were encoded:
+
+```text
+sex
+embarked
+```
 
 ### Feature and Target Separation
 
-The dataset was divided into:
+The dataset was divided into independent features and the target variable:
 
-```text
-X = Features
-Y = Target (survived)
+```python
+X = df.drop("survived", axis=1)
+Y = df["survived"]
 ```
+
+where:
+
+* `X` contains the input features.
+* `Y` contains the target variable `survived`.
 
 ## Train-Test Split
 
@@ -85,25 +119,45 @@ train_test_split(
 )
 ```
 
+The `random_state=42` parameter was used to ensure reproducibility.
+
+## Feature Scaling
+
+Feature scaling was performed using `StandardScaler`.
+
+Scaling was particularly important for models that are sensitive to the scale of input features, such as KNN and SVC.
+
+```python
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+```
+
+The scaled feature data was then used for the relevant models.
+
 ## Machine Learning Models
 
 ### 1. Logistic Regression
 
-A Logistic Regression model was trained as one of the baseline classification models.
+Logistic Regression was implemented as a baseline classification algorithm.
+
+It is a commonly used classification model for predicting binary outcomes.
 
 ### 2. K-Nearest Neighbours
 
-A KNN classifier was implemented with:
+K-Nearest Neighbours (KNN) was implemented using:
 
 ```python
 n_neighbors=5
 ```
 
-Feature scaling was performed using `StandardScaler` before training the KNN model.
+Feature scaling was performed before training the KNN model.
 
 ### 3. Gaussian Naive Bayes
 
-A Gaussian Naive Bayes classifier was trained on the processed dataset.
+Gaussian Naive Bayes was implemented as a probabilistic classification algorithm.
+
+The model was trained using the processed Titanic dataset.
 
 ### 4. Decision Tree
 
@@ -113,26 +167,71 @@ A Decision Tree classifier was implemented using:
 random_state=42
 ```
 
+The model uses decision rules based on the input features to classify passengers.
+
 ### 5. Support Vector Classifier
 
-A Support Vector Classifier (`SVC`) was trained using the scaled feature data.
+A Support Vector Classifier (`SVC`) was implemented using scaled feature data.
 
-According to the results obtained in the notebook, SVC performed the best among the models tested and was selected as the final model for this dataset.
+SVC attempts to find an optimal decision boundary for separating the different classes.
+
+## Model Selection
+
+All five classification models were trained and evaluated using the same train-test split.
+
+The accuracy results obtained in the project were:
+
+| Model                           |   Accuracy |
+| ------------------------------- | ---------: |
+| Logistic Regression             |     80.34% |
+| K-Nearest Neighbours            |     77.53% |
+| Gaussian Naive Bayes            |     77.53% |
+| Decision Tree                   |     76.97% |
+| Support Vector Classifier (SVC) | **82.58%** |
+
+Based on the evaluation results, **SVC achieved the highest accuracy of 82.58%** among the tested models.
+
+Therefore, **SVC was selected as the final model** for the Titanic Survival Prediction project.
 
 ## Model Evaluation
 
-The models were evaluated using:
+The trained models were evaluated using multiple classification metrics.
 
-* Accuracy Score
-* Confusion Matrix
-* Classification Report
+### Accuracy Score
 
-The classification report provides:
+Accuracy measures the proportion of correctly classified passengers out of all predictions.
+
+```python
+accuracy_score(y_test, y_pred)
+```
+
+### Confusion Matrix
+
+A confusion matrix was used to examine the number of:
+
+* True Positives
+* True Negatives
+* False Positives
+* False Negatives
+
+```python
+confusion_matrix(y_test, y_pred)
+```
+
+### Classification Report
+
+A classification report was generated for each model.
+
+It provides:
 
 * Precision
 * Recall
 * F1-score
 * Support
+
+```python
+classification_report(y_test, y_pred)
+```
 
 ## Project Workflow
 
@@ -152,6 +251,9 @@ Handle Missing Values
 Encode Categorical Features
        |
        v
+Separate Features and Target
+       |
+       v
 Train-Test Split
        |
        v
@@ -161,10 +263,13 @@ Feature Scaling
 Train Multiple Classification Models
        |
        v
-Model Evaluation
+Generate Predictions
        |
        v
-Compare Results
+Evaluate Models
+       |
+       v
+Compare Model Performance
        |
        v
 Select SVC
@@ -178,7 +283,6 @@ Select SVC
 * Matplotlib
 * Seaborn
 * Scikit-learn
-* Jupyter Notebook
 
 ## Libraries Used
 
@@ -205,54 +309,36 @@ from sklearn.metrics import (
 )
 ```
 
-## Project Structure
 
-```text
-Titanic-Survival-Classification/
-│
-├── Titanic survival (Classification learning project).ipynb
-├── titanic.csv
-└── README.md
-```
+### The classification models achieved the following accuracy scores:
 
-## How to Run
+| Model                |   Accuracy |
+| -------------------- | ---------: |
+| Logistic Regression  |     80.34% |
+| KNN                  |     77.53% |
+| Gaussian Naive Bayes |     77.53% |
+| Decision Tree        |     76.97% |
+| **SVC**              | **82.58%** |
 
-### 1. Clone the Repository
-
-```bash
-git clone <your-repository-url>
-cd Titanic-Survival-Classification
-```
-
-### 2. Install Dependencies
-
-```bash
-pip install numpy pandas matplotlib seaborn scikit-learn
-```
-
-### 3. Open the Notebook
-
-Open the following file using Jupyter Notebook or JupyterLab:
-
-```text
-Titanic survival (Classification learning project).ipynb
-```
-
-### 4. Run the Notebook
-
-Run the cells sequentially to:
-
-1. Load the dataset
-2. Preprocess the data
-3. Train the classification models
-4. Generate predictions
-5. Evaluate the models
-6. Compare their performance
+SVC produced the highest accuracy among the models tested in this project.
 
 ## Conclusion
 
-This project demonstrates the implementation and comparison of several supervised machine learning classification algorithms on the Titanic dataset.
+This project demonstrates a complete machine learning classification workflow using the Titanic dataset.
 
-The models were evaluated using accuracy, confusion matrices, and classification reports. Based on the results obtained in the notebook, **Support Vector Classifier (SVC)** was selected as the model used for the final prediction.
+The project covers:
 
-This project is part of my Machine Learning journey, focused on understanding classification algorithms, preprocessing techniques, model evaluation, and practical machine learning workflows.
+* Data exploration
+* Data cleaning
+* Missing value handling
+* Categorical feature encoding
+* Feature scaling
+* Train-test splitting
+* Multiple classification algorithms
+* Model evaluation
+* Model comparison
+* Final model selection
+
+Five classification algorithms were evaluated, with **Support Vector Classifier (SVC)** achieving the highest accuracy of **82.58%**. Therefore, SVC was selected as the final model for the project.
+
+This project is part of my Machine Learning journey and focuses on understanding classification algorithms, preprocessing techniques, model evaluation, and practical machine learning workflows.
