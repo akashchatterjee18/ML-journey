@@ -19,4 +19,4 @@ In short — tuning helps you squeeze out the best possible performance from you
 
 And this is also called **hyper parameter tuning**.
 
-But before starting any thing we first have to see what is **Cross Validation** and how to use it.
+
