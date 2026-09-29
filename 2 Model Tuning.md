@@ -1,6 +1,6 @@
 # Model Tuning
 
-## 1. What is Model Tuning?
+### What is Model Tuning?
 
 Model tuning is the process of finding the **best set of hyperparameters** for a machine learning model so that it performs well on **unseen data**.
 
