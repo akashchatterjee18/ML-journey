@@ -170,7 +170,7 @@ Systematically testing **every possible combination** of predefined hyperparamet
 
 Randomly selecting and testing a specified number of hyperparameter combinations from a predefined search space.
 
-
+---
 # Grid Search CV
 
 **Grid Search CV (GridSearchCV)** is a hyperparameter tuning method that tests **every possible combination** of specified hyperparameter values using **Cross-Validation**.
