@@ -2,7 +2,7 @@
 
 A machine learning classification project that predicts whether a passenger survived the Titanic disaster based on passenger-related features.
 
-The project focuses on data exploration, data preprocessing, categorical feature encoding, train-test splitting, feature scaling, implementation of multiple classification algorithms, model evaluation, and model selection.
+The project focuses on data exploration, data preprocessing, categorical feature encoding, train-test splitting, feature scaling, implementation of multiple classification algorithms, cross-validation, model evaluation, and model selection.
 
 ## Overview
 
@@ -16,7 +16,9 @@ The following classification algorithms are implemented and compared:
 * Decision Tree
 * Support Vector Classifier (SVC)
 
-The models are evaluated using accuracy score, confusion matrix, and classification report. Based on the results obtained in the project, SVC achieved the highest accuracy and was selected as the final model.
+The models are evaluated using accuracy score, confusion matrix, classification report, and 5-Fold Cross-Validation.
+
+Based on the results obtained in the project, SVC achieved the highest accuracy and was selected as the final model.
 
 ## Dataset
 
@@ -175,23 +177,52 @@ A Support Vector Classifier (`SVC`) was implemented using scaled feature data.
 
 SVC attempts to find an optimal decision boundary for separating the different classes.
 
+## Cross-Validation
+
+5-Fold Cross-Validation was used to evaluate the classification models across multiple data splits.
+
+Cross-validation helps assess model performance across different subsets of the dataset.
+
+The `cross_val_score()` function from Scikit-learn was used with:
+
+```python
+cv=5
+```
+
+The mean cross-validation accuracy was calculated to compare model performance across the five folds.
+
+```python
+from sklearn.model_selection import cross_val_score
+
+scores = cross_val_score(
+    model,
+    X,
+    Y,
+    cv=5,
+    scoring="accuracy"
+)
+
+print(scores)
+print(scores.mean())
+```
+
 ## Model Selection
 
 All five classification models were trained and evaluated using the same train-test split.
 
 The accuracy results obtained in the project were:
 
-| Model                           |   Accuracy |
-| ------------------------------- | ---------: |
-| Logistic Regression             |     80.34% |
-| K-Nearest Neighbours            |     77.53% |
-| Gaussian Naive Bayes            |     77.53% |
-| Decision Tree                   |     76.97% |
+| Model | Accuracy |
+|---|---:|
+| Logistic Regression | 80.34% |
+| K-Nearest Neighbours | 77.53% |
+| Gaussian Naive Bayes | 77.53% |
+| Decision Tree | 76.97% |
 | Support Vector Classifier (SVC) | **82.58%** |
 
-Based on the evaluation results, **SVC achieved the highest accuracy of 82.58%** among the tested models.
+Based on the evaluation results, SVC achieved the highest accuracy of 82.58% among the tested models.
 
-Therefore, **SVC was selected as the final model** for the Titanic Survival Prediction project.
+Therefore, SVC was selected as the final model for the Titanic Survival Prediction project.
 
 ## Model Evaluation
 
@@ -233,6 +264,14 @@ It provides:
 classification_report(y_test, y_pred)
 ```
 
+### Cross-Validation Score
+
+The mean 5-Fold Cross-Validation accuracy was used to understand model performance across multiple validation splits.
+
+```python
+scores.mean()
+```
+
 ## Project Workflow
 
 ```text
@@ -261,6 +300,9 @@ Feature Scaling
        |
        v
 Train Multiple Classification Models
+       |
+       v
+5-Fold Cross-Validation
        |
        v
 Generate Predictions
@@ -293,6 +335,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score
+
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import StandardScaler
 
@@ -309,16 +353,15 @@ from sklearn.metrics import (
 )
 ```
 
-
 ### The classification models achieved the following accuracy scores:
 
-| Model                |   Accuracy |
-| -------------------- | ---------: |
-| Logistic Regression  |     80.34% |
-| KNN                  |     77.53% |
-| Gaussian Naive Bayes |     77.53% |
-| Decision Tree        |     76.97% |
-| **SVC**              | **82.58%** |
+| Model | Accuracy |
+|---|---:|
+| Logistic Regression | 80.34% |
+| KNN | 77.53% |
+| Gaussian Naive Bayes | 77.53% |
+| Decision Tree | 76.97% |
+| **SVC** | **82.58%** |
 
 SVC produced the highest accuracy among the models tested in this project.
 
@@ -334,6 +377,7 @@ The project covers:
 * Categorical feature encoding
 * Feature scaling
 * Train-test splitting
+* 5-Fold Cross-Validation
 * Multiple classification algorithms
 * Model evaluation
 * Model comparison
@@ -341,4 +385,4 @@ The project covers:
 
 Five classification algorithms were evaluated, with **Support Vector Classifier (SVC)** achieving the highest accuracy of **82.58%**. Therefore, SVC was selected as the final model for the project.
 
-This project is part of my Machine Learning journey and focuses on understanding classification algorithms, preprocessing techniques, model evaluation, and practical machine learning workflows.
+This project is part of my Machine Learning journey and focuses on understanding classification algorithms, preprocessing techniques, cross-validation, model evaluation, and practical machine learning workflows.
