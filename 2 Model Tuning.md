@@ -162,10 +162,41 @@ Different Hyperparameter Combinations
 
 Manually selecting different hyperparameter values, training the model, and comparing its performance to find suitable hyperparameters.
 
-### 2. Grid Search
+### 2. Grid Search CV
 
 Systematically testing **every possible combination** of predefined hyperparameter values to find the best combination.
 
-### 3. Random Search
+### 3. Random Search CV
 
 Randomly selecting and testing a specified number of hyperparameter combinations from a predefined search space.
+
+
+# Grid Search CV
+
+## Grid Search CV
+
+**Grid Search CV (GridSearchCV)** is a hyperparameter tuning method that tests **every possible combination** of specified hyperparameter values using **Cross-Validation**.
+
+### How it works
+1. Define hyperparameters and their possible values.
+2. Create all possible combinations.
+3. Evaluate each combination using Cross-Validation.
+4. Select the combination with the **best CV score**.
+
+**In short:**  
+> Grid Search CV = Grid Search + Cross-Validation
+
+# Random Search CV
+
+## Random Search CV
+
+**Random Search CV (RandomizedSearchCV)** is a hyperparameter tuning method that randomly tests a specified number of hyperparameter combinations from a given search space using **Cross-Validation**.
+
+### How it works
+1. Define hyperparameters and their possible values/ranges.
+2. Randomly select a specified number of combinations.
+3. Evaluate each combination using Cross-Validation.
+4. Select the combination with the **best CV score**.
+
+**In short:**  
+> Random Search CV = Random Search + Cross-Validation
