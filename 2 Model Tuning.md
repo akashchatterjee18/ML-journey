@@ -196,3 +196,57 @@ Randomly selecting and testing a specified number of hyperparameter combinations
 
 **In short:**  
 > Random Search CV = Random Search + Cross-Validation
+
+# Why Use Random Search CV Over Grid Search CV?
+
+The main reason to use **Random Search CV over Grid Search CV** is **efficiency**, especially when there are many hyperparameters or a large search space.
+
+## Example
+
+Suppose we have 4 hyperparameters:
+
+- `n_estimators` → 5 values
+- `max_depth` → 5 values
+- `min_samples_split` → 4 values
+- `max_features` → 3 values
+
+### Grid Search CV
+
+Grid Search tests every possible combination:
+
+**5 × 5 × 4 × 3 = 300 combinations**
+
+If `cv=5`:
+
+**300 × 5 = 1,500 model fits**
+
+### Random Search CV
+
+Suppose we use `n_iter=30`.
+
+Random Search tests only **30 randomly selected combinations**.
+
+If `cv=5`:
+
+**30 × 5 = 150 model fits**
+
+Therefore, Random Search can explore a large search space with much less computation.
+
+## Key Difference
+
+| Grid Search CV | Random Search CV |
+|---|---|
+| Tests **every combination** | Tests **random combinations** |
+| Can become very expensive | Usually much faster |
+| Good for small search spaces | Good for large search spaces |
+| Number of combinations grows rapidly | Number of iterations is controlled using `n_iter` |
+
+## Important Point
+
+Random Search is not simply "less accurate".
+
+It can sometimes find a very good combination with far fewer model evaluations because it explores the search space more broadly.
+
+> **Grid Search CV → Exhaustive but expensive**
+
+> **Random Search CV → Controlled and efficient**
