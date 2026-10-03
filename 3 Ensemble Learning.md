@@ -89,5 +89,5 @@ Final Prediction
 
 ## Types of Ensemble Learnimg
 
-<img width="1918" height="820" alt="image" src="https://github.com/user-attachments/assets/591f3faf-f94c-44b7-85d3-fdbcbf1a9f96" />
+<img width="1918" height="820" alt="image" src="https://github.com/user-attachments/assets/8620c0b2-d1d6-4137-bac1-f8dcdab03edc" />
 
