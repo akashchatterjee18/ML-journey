@@ -302,3 +302,10 @@ For classification:
 $$
 \boxed{\text{Final Prediction = Majority Vote of all Trees}}
 $$
+
+## Note
+```text
+In Bagging, it converts a **low-bias, high-variance (overfitting)** model into a more **generalised, low-bias, low-variance** model.
+
+In Boosting, it converts a **high-bias, low-variance (underfitting)** model into a more **generalised, low-bias, low-variance** model.
+```
