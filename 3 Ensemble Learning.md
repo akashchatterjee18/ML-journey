@@ -224,3 +224,81 @@ Combine Predictions
       ↓
 Final Prediction
 ```
+
+# Random Forest Classifier
+
+Random Forest Classifier is a **supervised ensemble learning algorithm** used for **classification**.
+
+It combines multiple **Decision Trees** and uses **majority voting** to make the final prediction.
+
+Random Forest is based on **Bagging** and **Random Feature Selection**.
+
+## How does Random Forest work?
+
+1. Create multiple **bootstrap samples** from the training data using sampling with replacement.
+2. Train a **Decision Tree** on each bootstrap sample.
+3. At each split, only a **random subset of features** is considered.
+4. Each Decision Tree makes a prediction.
+5. The predictions are combined using **majority voting**.
+6. The class with the most votes becomes the final prediction.
+
+## Basic Structure
+
+```text
+Training Data
+      |
+      ↓
+Bootstrap Sampling
+      |
+      ↓
+Multiple Decision Trees
+      |
+      ↓
+Random Feature Selection
+      |
+      ↓
+Predictions from Trees
+      |
+      ↓
+Majority Voting
+      |
+      ↓
+Final Prediction
+```
+
+## Why Random Feature Selection?
+
+If every tree uses all the features, the trees can become very similar.
+
+Randomly selecting features makes the trees **more diverse**.
+
+This helps reduce **variance and overfitting**.
+
+## Random Forest vs Decision Tree
+
+| Decision Tree | Random Forest |
+|---|---|
+| Single tree | Multiple trees |
+| Higher variance | Lower variance |
+| More prone to overfitting | Less prone to overfitting |
+| Uses all features at a split | Uses a random subset of features |
+
+## Important Hyperparameters
+
+- **n_estimators** → Number of Decision Trees.
+- **max_depth** → Maximum depth of each tree.
+- **max_features** → Number of features considered at each split.
+- **min_samples_split** → Minimum samples required to split a node.
+- **min_samples_leaf** → Minimum samples required in a leaf.
+
+## Key Takeaway
+
+$$
+\boxed{\text{Random Forest = Bagging + Random Feature Selection}}
+$$
+
+For classification:
+
+$$
+\boxed{\text{Final Prediction = Majority Vote of all Trees}}
+$$
