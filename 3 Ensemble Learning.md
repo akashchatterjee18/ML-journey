@@ -130,19 +130,6 @@ It is called the **meta-model**, **meta-learner**, or **level-1 model**.
 
 ## Basic Structure
 
-```text
-                    Training Data
-                         |
-          +--------------+--------------+
-          |              |              |
-     Model 1         Model 2         Model 3
-        |               |               |
-     Prediction       Prediction       Prediction
-        |               |               |
-        +---------------+---------------+
-                        |
-                  Meta Features
-                        |
-                  Meta-Model
-                        |
-                  Final Prediction
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/86c326ec-4196-4e29-8009-913f9874ac41" />
+
+
