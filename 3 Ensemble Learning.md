@@ -169,3 +169,58 @@ Predictions
 Voting / Averaging
       ↓
 Final Prediction
+```
+
+Random Forest is a popular Bagging-based algorithm.
+Random Forest = Bagging + Random Feature Selection
+
+## Boosting
+
+**Boosting** is an **ensemble learning technique** that combines multiple **weak learners sequentially** to create a strong learner.
+
+Each new model focuses on the **errors made by previous models**.
+
+**Main goal:** Reduce **bias** and improve prediction performance.
+
+---
+
+## How Boosting Works
+
+### 1. Train a Model
+Train the first weak learner on the training data.
+
+### 2. Focus on Errors
+Identify the observations that were incorrectly predicted.
+
+### 3. Train the Next Model
+The next model gives more importance to previous errors.
+
+### 4. Repeat
+Multiple models are trained **sequentially**, with each model improving upon the previous ones.
+
+### 5. Combine Predictions
+The predictions of all models are combined to produce the final prediction.
+
+---
+
+## Flow
+
+```text
+Training Data
+      ↓
+Weak Learner 1
+      ↓
+Focus on Errors
+      ↓
+Weak Learner 2
+      ↓
+Focus on Errors
+      ↓
+Weak Learner 3
+      ↓
+      ...
+      ↓
+Combine Predictions
+      ↓
+Final Prediction
+```
