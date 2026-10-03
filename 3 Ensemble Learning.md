@@ -99,7 +99,6 @@ Final Prediction
 
 Instead of simply averaging or voting the predictions, stacking trains a meta-model to learn **how to combine the predictions of the base models**.
 
----
 
 ## How Stacking Works
 
@@ -132,4 +131,41 @@ It is called the **meta-model**, **meta-learner**, or **level-1 model**.
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/86c326ec-4196-4e29-8009-913f9874ac41" />
 
+---
+## Bagging
 
+**Bagging (Bootstrap Aggregating)** is an **ensemble learning technique** that trains multiple models on different **bootstrap samples** of the training data and combines their predictions.
+
+**Main goal:** Reduce **variance** and **overfitting**.
+
+
+
+## How Bagging Works
+
+### 1. Bootstrap Sampling
+Create multiple datasets using **random sampling with replacement**.
+
+### 2. Train Models
+Train a separate model on each bootstrap sample.
+
+### 3. Aggregate Predictions
+Combine the predictions:
+
+- **Classification → Majority Voting**
+- **Regression → Averaging**
+
+
+## Flow
+
+```text
+Training Data
+      ↓
+Bootstrap Samples
+      ↓
+Multiple Models
+      ↓
+Predictions
+      ↓
+Voting / Averaging
+      ↓
+Final Prediction
