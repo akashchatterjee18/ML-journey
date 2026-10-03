@@ -322,3 +322,9 @@ Where:
 - $\alpha_m$ = weight assigned to the $m^{th}$ learner
 - $M$ = number of weak learners
 - $F(x)$ = final boosted model
+
+
+## Types of Boosting
+1. Adaboost
+2. Gradient Boost
+3. XG Boost
