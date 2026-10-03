@@ -91,3 +91,58 @@ Final Prediction
 
 <img width="1918" height="820" alt="image" src="https://github.com/user-attachments/assets/8620c0b2-d1d6-4137-bac1-f8dcdab03edc" />
 
+---
+
+## Stacking
+
+**Stacking (Stacked Generalization)** is an **ensemble learning technique** that combines multiple different machine learning models using another model called a **meta-model**.
+
+Instead of simply averaging or voting the predictions, stacking trains a meta-model to learn **how to combine the predictions of the base models**.
+
+---
+
+## How Stacking Works
+
+Stacking consists of two levels:
+
+### Base Models
+
+Multiple different models are trained on the same dataset.
+
+Examples:
+- Logistic Regression
+- KNN
+- Decision Tree
+- SVM
+- Naive Bayes
+
+These models are called **base learners** or **level-0 models**.
+
+### Meta-Model
+
+The predictions made by the base models are used as **features** for another model.
+
+This model learns how to combine the base-model predictions.
+
+It is called the **meta-model**, **meta-learner**, or **level-1 model**.
+
+---
+
+## Basic Structure
+
+```text
+                    Training Data
+                         |
+          +--------------+--------------+
+          |              |              |
+     Model 1         Model 2         Model 3
+        |               |               |
+     Prediction       Prediction       Prediction
+        |               |               |
+        +---------------+---------------+
+                        |
+                  Meta Features
+                        |
+                  Meta-Model
+                        |
+                  Final Prediction
