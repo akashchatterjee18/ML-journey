@@ -171,60 +171,6 @@ Voting / Averaging
 Final Prediction
 ```
 
-Random Forest is a popular Bagging-based algorithm.
-Random Forest = Bagging + Random Feature Selection
-
-## Boosting
-
-**Boosting** is an **ensemble learning technique** that combines multiple **weak learners sequentially** to create a strong learner.
-
-Each new model focuses on the **errors made by previous models**.
-
-**Main goal:** Reduce **bias** and improve prediction performance.
-
----
-
-## How Boosting Works
-
-### 1. Train a Model
-Train the first weak learner on the training data.
-
-### 2. Focus on Errors
-Identify the observations that were incorrectly predicted.
-
-### 3. Train the Next Model
-The next model gives more importance to previous errors.
-
-### 4. Repeat
-Multiple models are trained **sequentially**, with each model improving upon the previous ones.
-
-### 5. Combine Predictions
-The predictions of all models are combined to produce the final prediction.
-
----
-
-## Flow
-
-```text
-Training Data
-      ↓
-Weak Learner 1
-      ↓
-Focus on Errors
-      ↓
-Weak Learner 2
-      ↓
-Focus on Errors
-      ↓
-Weak Learner 3
-      ↓
-      ...
-      ↓
-Combine Predictions
-      ↓
-Final Prediction
-```
-
 # Random Forest Classifier
 
 Random Forest Classifier is a **supervised ensemble learning algorithm** used for **classification**.
@@ -303,9 +249,76 @@ $$
 \boxed{\text{Final Prediction = Majority Vote of all Trees}}
 $$
 
+
+
+
+## Boosting
+
+**Boosting** is an **ensemble learning technique** that combines multiple **weak learners sequentially** to create a strong learner.
+
+Each new model focuses on the **errors made by previous models**.
+
+**Main goal:** Reduce **bias** and improve prediction performance.
+
+---
+
+## How Boosting Works
+
+### 1. Train a Model
+Train the first weak learner on the training data.
+
+### 2. Focus on Errors
+Identify the observations that were incorrectly predicted.
+
+### 3. Train the Next Model
+The next model gives more importance to previous errors.
+
+### 4. Repeat
+Multiple models are trained **sequentially**, with each model improving upon the previous ones.
+
+### 5. Combine Predictions
+The predictions of all models are combined to produce the final prediction.
+
+---
+
+## Flow
+
+```text
+Training Data
+      ↓
+Weak Learner 1
+      ↓
+Focus on Errors
+      ↓
+Weak Learner 2
+      ↓
+Focus on Errors
+      ↓
+Weak Learner 3
+      ↓
+      ...
+      ↓
+Combine Predictions
+      ↓
+Final Prediction
+```
+
 ## Note
 ```text
-In Bagging, it converts a **low-bias, high-variance (overfitting)** model into a more **generalised, low-bias, low-variance** model.
+In Bagging / Random Forest, it converts a **low-bias, high-variance (overfitting)** model into a more **generalised, low-bias, low-variance** model.
 
 In Boosting, it converts a **high-bias, low-variance (underfitting)** model into a more **generalised, low-bias, low-variance** model.
 ```
+
+### Formula
+
+$$
+F(x) = \sum_{m=1}^{M} \alpha_m h_m(x)
+$$
+
+Where:
+
+- $h_m(x)$ = prediction of the $m^{th}$ weak learner
+- $\alpha_m$ = weight assigned to the $m^{th}$ learner
+- $M$ = number of weak learners
+- $F(x)$ = final boosted model
