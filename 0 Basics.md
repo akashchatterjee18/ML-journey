@@ -83,8 +83,6 @@ Similar to a student learning with the help of a teacher.
 - Naive Bayes
 - Support Vector Machine (SVM)
 - K-Nearest Neighbors (KNN)
-- Random Forest
-- Gradient Boosting
 
 ### Advantages
 
@@ -136,9 +134,6 @@ Similar to a student learning by exploring without a teacher.
 - Hierarchical Clustering
 - DBSCAN
 - Principal Component Analysis (PCA)
-- t-SNE
-- Apriori Algorithm
-- Gaussian Mixture Model (GMM)
 
 ### Advantages
 
